@@ -66,8 +66,9 @@ app = Flask(__name__)
 CORS(app)
 
 # Load model, preprocessor, and label encoder
-# Load combined model, preprocessor, and label encoder from one file
-model, preprocessor, label_encoder = joblib.load("model.pkl")
+model = joblib.load("model.pkl")
+preprocessor = joblib.load("preprocessor.pkl")
+label_encoder = joblib.load("label_encoder.pkl")
 
 @app.route("/predict", methods=["POST"])
 def predict():
